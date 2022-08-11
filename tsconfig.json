@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES6",
+    /* Type Checking */
+    "strict": true
+  },
+  "include": ["index.ts"]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "ts-void",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "typescript",
+    "void",
+    "ts",
+    "null",
+    "types"
+  ],
+  "homepage": "https://github.com/paol-imi/ts-void#readme",
+  "bugs": "https://github.com/paol-imi/ts-void/issues",
+  "repository": "github:paol-imi/ts-void",
+  "license": "MIT",
+  "author": {
+    "name": "Paolo Longo",
+    "email": "paololongo.git@gmail.com",
+    "url": "https://github.com/paol-imi/ts-void"
+  },
+  "sideEffects": false,
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/esm/index.esm.js",
+  "main": "./dist/cjs/index.js",
+  "scripts": {
+    "build:types": "tsc --declaration --declarationDir dist/types --emitDeclarationOnly",
+    "build:cjs": "tsc --outDir dist/cjs --module CommonJs",
+    "build:esm": "tsc --outDir dist/esm --module ES6",
+    "prepublishOnly": "npm run build:types && npm run build:cjs && npm run build:esm"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
