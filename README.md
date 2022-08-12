@@ -29,11 +29,11 @@ import { Void } from "ts-void";
 Then you can check if the variable is `Void`.
 
 ```ts
-function setValue(value: T | Void = Void) {
+function setValue<T>(value: T | Void = Void) {
   if (value !== Void) {
     // Now the value is only of type "Value".
   }
 }
 ```
 
-And that's it! You may be wondering what to do if also the generic is of type `Void`. Well, for these case you can use [`ts-void2`](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)!
+#### And that's it, thanks for reading! You may be wondering what to do if also the generic is of type `Void`. Well, for these case you can use [`ts-void2`](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)!
