@@ -14,7 +14,7 @@
 
 ## Void 🔮
 
-If you're a React library maintainer, you may have come across a case where you need a ref to stores a user-provided value.
+If you're a React library maintainer, you may have come across a case where you need to store a user-provided value.
 
 ```ts
 const ref = useRef<Value | null>(null);
@@ -46,7 +46,7 @@ function doSomething() {
 
 This works, but is a bit verbose and since `maybeValue` can't really be typed, you'll need the non-null assertion (and disable the eslint warning!).
 
-Alternatively, you may use `Void` as a new primitive value. Unlike `null`, users won't be able to see or use this type, so you're sure there will be no conflicts.
+Alternatively, you may use `Void` as a new primitive value. Unlike `null`, users won't be able to see or provide this type, so you're sure there will be no conflicts.
 
 ```ts
 import { Void } from "ts-void";
@@ -64,8 +64,8 @@ function doSomething() {
 }
 ```
 
-You may be wondering what to do if also the user use this library and provide `Void` as a value. Well, for these cases you can use [`ts-void-2`](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)!
+You may be wondering what to do if also the user uses this library and provides `Void` as a value. Well, for these cases you can use [`ts-void-2`](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)!
 
-Jokes apart, the whole point is to make this type `private` and never expose it to the user, otherwise its just a new nullish value, and Javascript have enough of those!
+Jokes apart, the whole point is to make this type `private` and never expose it to the user, otherwise it's just a new nullish value, and Javascript has enough of those!
 
 The way to ensure this is to bundle `ts-void` inside your library, and not use it as a dependency. Even if the user use ts-void, your private `Void` type will be unique!
