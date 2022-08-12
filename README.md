@@ -14,40 +14,26 @@
 
 ## Void 🔮
 
-How do you check if this variable contains a value?
+How do you check if a variable contains a value? You may use `undefined` or `null` as placeholders, but what if the generic itself is `undefined` or `null`?
 
 ```ts
-let value: Value;
-```
-
-You may initialize it with `undefined` or `null`, but what if `Value` is a generic you don't control, and it can be one of these values?
-
-```ts
-import { Void } from "ts-void";
+function setValue<T>(value?: T);
 ```
 
 You may use `Void` as a new primitive value.
 
 ```ts
-let value: Value | Void;
+import { Void } from "ts-void";
 ```
 
-then you can check if the variable is `Void`.
+Then you can check if the variable is `Void`.
 
 ```ts
-if (value !== Void) {
-  // Now the value is only of type "Value".
+function setValue(value: T | Void = Void) {
+  if (value !== Void) {
+    // Now the value is only of type "Value".
+  }
 }
 ```
 
-You may also use the utility type.
-
-```ts
-import { type NonVoid } from "ts-void";
-```
-
-And extract the original type from the union.
-
-```ts
-type Extracted = NonVoid<T | Void>; // equals to T.
-```
+And that's it! You may be wondering what to do if also the generic is of type `Void`. Well, for these case you can use [`ts-void2`](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)!
